@@ -25,9 +25,9 @@ function App() {
           <Route path="/login">
             <Login />
           </Route>
-          <Route path="/admin">
+          <PrivateRoute path="/admin">
             <AllBooksAdmin />
-          </Route>
+          </PrivateRoute>
           <Route path="/manage-product">
             <AllBooksAdmin />
           </Route>
@@ -40,9 +40,9 @@ function App() {
             <Orders />
           </PrivateRoute>
 
-          <Route path="/addBook">
+          <PrivateRoute path="/addBook">
             <AddBook /> 
-          </Route>
+          </PrivateRoute>
 
           <Route path="*">
             <NoMatch /> 

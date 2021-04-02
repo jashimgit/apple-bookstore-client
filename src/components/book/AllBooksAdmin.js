@@ -1,4 +1,6 @@
 /* eslint-disable no-restricted-globals */
+import { faPencilAlt, faPlus, faThLarge, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -35,8 +37,12 @@ const AllBooksAdmin = () => {
         <td>{authorName}</td>
         <td>BDT: {price}</td>
         <td>
-          <button className="btn btn-info btn-sm" type="button">Edit</button>
-          <button className="btn btn-danger btn-sm " type="button" onClick={()=>handleDeleteBook(_id, event)}>Delete</button>
+          <button className="btn btn-info btn-sm" type="button">
+          <FontAwesomeIcon icon={faPencilAlt} />
+          </button>
+          <button className="btn btn-danger btn-sm " type="button" onClick={()=>handleDeleteBook(_id, event)}>
+          <FontAwesomeIcon icon={faTrash} />
+          </button>
         </td>
       </tr>
     );
@@ -48,13 +54,13 @@ const AllBooksAdmin = () => {
         <div className="col-md-2 ">
           <ul class="list-group">
             <Link to="/manage-product" class="list-group-item">
-              Manage Product
+            <FontAwesomeIcon icon={faThLarge} />  Manage Product
             </Link>
             <Link to="/addBook" class="list-group-item">
-              Add Book
+            <FontAwesomeIcon icon={faPlus} />  Add Book
             </Link>
             <Link to="/" class="list-group-item">
-              Edit book
+            <FontAwesomeIcon icon={faPencilAlt} />  Edit book
             </Link>
           </ul>
         </div>

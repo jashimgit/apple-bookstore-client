@@ -18,7 +18,7 @@ const Login = () => {
   return (
     <div className="d-flex login">
       <h2 className="display-4 mb-5">Login</h2>
-      <p>you must login to view {from.pathname}</p>
+      
       <button className="btn btn-danger" type="button" onClick={handleGoogleSignIn}>
         Continue with google
       </button>

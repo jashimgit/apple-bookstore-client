@@ -1,7 +1,8 @@
+import { faPencilAlt, faPlus, faThLarge } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link } from 'react-router-dom';
-
 const AddBook = () => {
   const { register, handleSubmit } = useForm();
   const [imageUrl, setImageUrl] = useState();
@@ -31,19 +32,21 @@ const AddBook = () => {
       .then((res) => res.json())
       .then((data) => setImageUrl(data.data.display_url));
   };
+
+  
   return (
     <div className="container-fluid mt-5">
       <div className="row">
         <div className="col-md-2 ">
           <ul class="list-group">
-            <Link to="/manage-product" class="list-group-item">
-              Manage Product
+          <Link to="/manage-product" class="list-group-item">
+            <FontAwesomeIcon icon={faThLarge}  />  Manage Product
             </Link>
             <Link to="/addBook" class="list-group-item">
-              Add Book
+            <FontAwesomeIcon icon={faPlus} />  Add Book
             </Link>
             <Link to="/" class="list-group-item">
-              Edit book
+            <FontAwesomeIcon icon={faPencilAlt} />  Edit book
             </Link>
           </ul>
         </div>

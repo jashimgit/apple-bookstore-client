@@ -40,13 +40,9 @@ const Navbar = () => {
                                 Admin
                             </Link>
                         </li>
+                        
                         <li className="nav-item">
-                            <Link className="nav-link" to="/addBook">
-                                Add Book
-                            </Link>
-                        </li>
-                        <li className="nav-item">
-                            {auth.user ? <h5 className="nav-link">{auth.user.displayName}</h5> : '' }
+                            {auth.user ? <Link to="/profile" className="nav-link"><b>{auth.user.displayName}</b></Link> : '' }
                         </li>
                         {auth.user ? (
                             <li className="nav-item">

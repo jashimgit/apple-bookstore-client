@@ -4,7 +4,7 @@
 import firebase from "firebase/app";
 import "firebase/auth";
 import { createContext, useContext, useEffect, useState } from "react";
-import { useHistory } from 'react-router-dom';
+import { Redirect } from "react-router";
 import { firebaseConfig } from "./firebaseConfig";
 
 if(!firebase.apps.length) {
@@ -30,7 +30,7 @@ export const useAuth = () => useContext(authContext);
 // Provider hook that creates auth object and handles state
 function useProvideAuth() {
     const [user, setUser] = useState(null);
-  const history = useHistory();
+
     const signInWithPopup = () => {
       return firebase
       .auth()
@@ -47,7 +47,7 @@ function useProvideAuth() {
           .signOut()
           .then(() => {
             setUser(false);
-            history.replace('/');
+            <Redirect to="/" />
           });
       };
 

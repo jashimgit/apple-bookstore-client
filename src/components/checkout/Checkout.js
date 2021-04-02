@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import { useAuth } from '../auth/AuthManager';
@@ -12,31 +14,45 @@ const Checkout = () => {
     useEffect(() => {
         const url = `https://rocky-wildwood-14617.herokuapp.com/book/${bookId}`;
     
-        fetch(url)
-        .then(res => res.json())
-        .then(data => setBookItem(data[0]));
-        // console.log(bookItem);
-    }, [bookId]);
+        // fetch(url)
+        // .then(res => res.json())
+        // .then(data => setBookItem(data[0]));
+        // console.log('from checkout useEffect',bookItem);
+
+        async function fetchData() {
+            const response = await fetch(url);
+            const json = await response.json();
+            console.log('from checkout ',json[0]);
+            setBookItem(json[0]);
+        }
+        fetchData();
+    }, []);
 
 
     const handleCheckOut = (bookItem) => {
-        setOrders(bookItem);
-        // console.log(orders)
+        // setOrders(bookItem);
+        // console.log('log from order', bookItem)
+        
+        console.log('from orders ', orders);
+        
         fetch('https://rocky-wildwood-14617.herokuapp.com/orders',{
             method: 'POST',
             headers: {'Content-Type' : 'application/json'},
             body: JSON.stringify({
-                bookId : `${orders._id}`,
-                bookName: `${orders.bookName}`,
-                authorName: `${orders.authorName}`,
-                price: `${orders.price}`,
+                bookId : `${bookItem._id}`,
+                bookName: `${bookItem.bookName}`,
+                authorName: `${bookItem.authorName}`,
+                price: `${bookItem.price}`,
                 quantity: 1,
                 userEmail: `${auth.user.email}`,
                 orderTime:  new Date().toLocaleString()
             })
         }, [bookItem])
+        
         .then(res => res.json())
-        .then(data => console.log(data))
+        .then(data => {
+            console.log(data);
+        })
         history.push('/orders');
     }
 

@@ -7,11 +7,20 @@ const Home = () => {
     const [books, setBooks] = useState([]);
     
     useEffect(() => {
-        const url = 'https://rocky-wildwood-14617.herokuapp.com/books';
-        fetch(url)
-            .then((res) => res.json())
-            .then((books) => setBooks(books));
+                
+        async function allBooks() {
+            const response = await fetch('https://rocky-wildwood-14617.herokuapp.com/books')
+            const data = await response.json()
+            setBooks(data);
+        }
+        allBooks();
+        
     }, []);
+
+
+
+
+
 
     return (
         <div className="container mt-4">

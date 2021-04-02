@@ -15,7 +15,7 @@ const AddBook = () => {
       price: data.price,
       imageUrl: imageUrl,
     };
-    const url = `https://rocky-wildwood-14617.herokuapp.com/add-book`;
+    const url = `https://whispering-chamber-50631.herokuapp.com/add-book`;
     fetch(url, {
       method: "POST",
       headers: { "Content-Type": "application/json" },

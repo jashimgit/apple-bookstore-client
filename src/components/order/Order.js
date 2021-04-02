@@ -13,7 +13,7 @@ const Order = () => {
   useEffect(() => {
     const email = auth.user.email;
 
-    fetch('https://rocky-wildwood-14617.herokuapp.com/getOrderByUser',{
+    fetch('https://whispering-chamber-50631.herokuapp.com/getOrderByUser',{
       method: 'POST',
       headers: {'Content-Type' : 'application/json'},
       body: JSON.stringify({userEmail: email})

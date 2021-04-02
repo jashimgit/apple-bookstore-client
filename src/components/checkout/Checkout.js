@@ -12,7 +12,7 @@ const Checkout = () => {
     const auth = useAuth();
     
     useEffect(() => {
-        const url = `https://rocky-wildwood-14617.herokuapp.com/book/${bookId}`;
+        const url = `https://whispering-chamber-50631.herokuapp.com/book/${bookId}`;
     
         // fetch(url)
         // .then(res => res.json())
@@ -35,7 +35,7 @@ const Checkout = () => {
         
         console.log('from orders ', orders);
         
-        fetch('https://rocky-wildwood-14617.herokuapp.com/orders',{
+        fetch('https://whispering-chamber-50631.herokuapp.com/orders',{
             method: 'POST',
             headers: {'Content-Type' : 'application/json'},
             body: JSON.stringify({

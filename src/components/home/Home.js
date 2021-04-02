@@ -9,7 +9,7 @@ const Home = () => {
     useEffect(() => {
                 
         async function allBooks() {
-            const response = await fetch('https://rocky-wildwood-14617.herokuapp.com/books')
+            const response = await fetch('https://whispering-chamber-50631.herokuapp.com/books')
             const data = await response.json()
             setBooks(data);
         }

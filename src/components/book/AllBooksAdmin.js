@@ -8,7 +8,7 @@ const AllBooksAdmin = () => {
   const [books, setBooks] = useState([]);
 
   useEffect(() => {
-    fetch("https://rocky-wildwood-14617.herokuapp.com/books")
+    fetch("https://whispering-chamber-50631.herokuapp.com/books")
       .then((res) => res.json())
       .then((data) => setBooks(data));
   }, []);
@@ -19,7 +19,7 @@ const AllBooksAdmin = () => {
 
   const handleDeleteBook = (id, event) => {
     // console.log('clicked, ', event.target.parentElement.parentElement);
-    fetch(`https://rocky-wildwood-14617.herokuapp.com/delete-book/${id}`, {
+    fetch(`https://whispering-chamber-50631.herokuapp.com/delete-book/${id}`, {
         method: "DELETE"
     })
     .then(res => res.json())
